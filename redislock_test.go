@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bsm/redislock"
 	"github.com/go-redis/redis"
+	"github.com/h2570su/redislock"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
