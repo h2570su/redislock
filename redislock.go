@@ -125,6 +125,16 @@ func Obtain(client RedisClient, key string, ttl time.Duration, opt *Options) (*L
 	return New(client).Obtain(key, ttl, opt)
 }
 
+// Get exists lock for Release in other place
+func Resume(client RedisClient, key string, value string) *Lock {
+	return &Lock{client: New(client), key: key, value: value}
+}
+
+// Dump key value for Resume in other place
+func (l *Lock) GetKeyAndValue() (string, string) {
+	return l.key, l.value
+}
+
 // Key returns the redis key used by the lock.
 func (l *Lock) Key() string {
 	return l.key
